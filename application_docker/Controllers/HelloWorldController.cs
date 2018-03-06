@@ -18,30 +18,7 @@ namespace MvcMovie.Controllers
         public IActionResult Index()
         {
             
-            string connStr = "server=mysql-server;user=ehour;database=ehour;port=3306;password=qwerty";
-            string sql = "SELECT * FROM USER_ROLE";
-            MySqlConnection conn = new MySqlConnection(connStr);
-   
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-            var model = new List<DatabaseScheme>();
-            using (MySqlConnection conn2 = new MySqlConnection(connStr))
-            {
-                conn.Open();
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    var student = new DatabaseScheme();
-                    student.Role = $"{rdr["ROLE"]}";
-                    student.Name = $"{rdr["NAME"]}";
-
-                    model.Add(student);
-             
-                }
-            }
-
-
-                return View(model);
+                return View();
         }
 
         public IActionResult About()

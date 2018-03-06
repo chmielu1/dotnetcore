@@ -6,8 +6,6 @@
 
 <p>OPENSHIFT</p>
 
-<%
-for each x in Request.ServerVariables
-  response.write(x & "<br>")
-next
-%> 
+<?php
+echo $_SERVER['SERVER_ADDR'].'<br/>';
+?>
